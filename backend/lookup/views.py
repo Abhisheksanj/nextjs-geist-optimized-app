@@ -51,6 +51,8 @@ class MobileNumberLookupView(APIView):
             'phone_number': phone_number,
             'name': phone_entry.name if phone_entry else (external_data.get('name') if external_data else None),
             'region': phone_entry.region if phone_entry else (external_data.get('location') if external_data else None),
+            'country_code': external_data.get('country_code') if external_data else None,
+            'country_name': external_data.get('country') if external_data else None,
             'sim_provider': sim_entry.provider if sim_entry else (external_data.get('carrier') if external_data else None),
             'carrier_type': sim_entry.carrier_type if sim_entry else (external_data.get('line_type') if external_data else None),
             'leaked_info': {
